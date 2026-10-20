@@ -624,3 +624,29 @@ export const defaultFaqItems: FAQItem[] = [
     category: 'privacy'
   }
 ];
+
+// Export aliases for backwards compatibility with components
+export const galleryImages = defaultGalleryImages;
+export const faqList = defaultFaqItems;
+
+export const sampleProgressEmailIssues = [
+  {
+    issueNumber: 'DISPATCH #14',
+    date: 'April 2026',
+    title: 'Spring MGH Labs Update & Lacrosse Season Opener',
+    snippet: 'GFR holding steady at 8 mL/min under careful management. Ben scored 3 goals in his season opener; Alex cheered from the top bleachers with a wool blanket.'
+  },
+  {
+    issueNumber: 'DISPATCH #13',
+    date: 'March 2026',
+    title: 'NKR Paired Swap Network Status: 2 Potential Chains Reviewed',
+    snippet: 'Our MGH donor coordinator evaluated two multi-pair exchange chains. Still seeking a dedicated living donor champion to trigger the match.'
+  },
+  {
+    issueNumber: 'DISPATCH #12',
+    date: 'February 2026',
+    title: 'The Great Sodium-Free Marinara Fiasco & Woodshop Updates',
+    snippet: 'Alex attempted to make pasta sauce without salt. Sarah called it "tomato-flavored sadness." In better news, three new heirloom bowls are finished.'
+  }
+];
+

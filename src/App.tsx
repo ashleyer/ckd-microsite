@@ -206,7 +206,6 @@ export default function App() {
     if (landingStep === 'landing') {
       return (
         <LandingPage
-          profile={profile}
           onProceedToNda={() => setLandingStep('docusign')}
           onGoogleSignIn={handleGoogleSignInFromLanding}
           isGoogleSigningIn={isGoogleSigningIn}
