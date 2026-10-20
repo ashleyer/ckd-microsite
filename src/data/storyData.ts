@@ -224,7 +224,7 @@ export const defaultRecipientProfile: RecipientProfile = {
       {
         name: 'Ben',
         relation: 'Nephew & Lacrosse Athlete (Age 17)',
-        photo: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&q=80',
+        photo: '/assets/aistudio/IMG_2984_da8b9c19.png',
         blurb: 'Alex has coached and cheered for Ben since middle school. Ben is his running buddy and chief motivation to get healthy.',
         funnyTrait: 'Secretly borrows Alex’s high-end woodworking chisels to carve miniature wooden lacrosse sticks.',
         quote: '"He never missed a single game or milestone. He is my hero, and I need him on the bleachers for my college games."'
@@ -444,7 +444,7 @@ export const defaultCommunityTestimonials: CommunityTestimonial[] = [
     id: 'test-1',
     authorName: 'Ben',
     relationship: 'Nephew & Lacrosse Athlete',
-    photo: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&q=80',
+    photo: '/assets/aistudio/IMG_2984_da8b9c19.png',
     isAnonymous: false,
     avatarBg: 'bg-teal-600',
     avatarText: 'B',
@@ -543,57 +543,57 @@ export const defaultCommunityTestimonials: CommunityTestimonial[] = [
 export const defaultGalleryImages: GalleryImage[] = [
   {
     id: 'gal-1',
-    src: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80',
-    alt: 'Custom Woodworking Bench',
-    title: 'Precision in the Woodshop',
-    caption: 'Handcrafted mortise and tenon timber framing in his Boston workshop.',
-    tag: 'Craftsmanship',
-    year: '2024'
-  },
-  {
-    id: 'gal-2',
-    src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
-    alt: 'Pacific Ocean Waves in Hawaii',
-    title: 'The Hawaii Freedom Dream',
-    caption: 'Dreaming of swimming freely in warm Pacific waves once kidney disease is conquered.',
-    tag: 'Dream',
-    year: 'Target: 2027'
-  },
-  {
-    id: 'gal-3',
-    src: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80',
-    alt: 'Nephew Ben on the Lacrosse Field',
-    title: 'Sideline Cheers for Ben',
-    caption: 'Cheering on nephew Ben through eight seasons of championship lacrosse.',
+    src: '/assets/aistudio/IMG_2984_da8b9c19.png',
+    alt: 'Ben and Family Moments',
+    title: 'Cherished Family Moments',
+    caption: 'Every memory fuels the drive to keep living fully, stay resilient, and create new tomorrows.',
     tag: 'Family',
     year: '2025'
   },
   {
+    id: 'gal-2',
+    src: '/assets/aistudio/IMG_1542_c2a83898.jpeg',
+    alt: 'Alex Smiling in Boston',
+    title: 'Staying Positive Every Single Day',
+    caption: 'Finding joy, gratitude, and purpose in the community even through health challenges.',
+    tag: 'Story',
+    year: '2026'
+  },
+  {
+    id: 'gal-3',
+    src: '/assets/aistudio/IMG_7308_08736c87.jpeg',
+    alt: 'Together with Friends & Nephew Ben',
+    title: 'The Core Support Squad & Nephew Ben',
+    caption: 'Surrounded by the unwavering love of family and friends cheering for a bright future.',
+    tag: 'Community',
+    year: '2025'
+  },
+  {
     id: 'gal-4',
-    src: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80',
-    alt: 'Mount Washington Ridge',
-    title: 'White Mountains Traverse',
-    caption: 'Conquering the Presidential Range with lifelong best friend Marcus Chen.',
+    src: '/assets/aistudio/IMG_3785_7da79993.jpeg',
+    alt: 'Adventures & Outdoor Travels',
+    title: 'Adventures & White Mountains Trails',
+    caption: 'Exploring outdoor trails and looking forward to post-transplant hikes with loved ones.',
     tag: 'Travels',
-    year: '2022'
+    year: '2024'
   },
   {
     id: 'gal-5',
-    src: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80',
-    alt: 'Vintage Vinyl & Jazz',
-    title: 'Sunday Morning Vinyl Sessions',
-    caption: 'Spinning classic Miles Davis and Bill Evans albums on his vintage turntable.',
-    tag: 'Hobbies',
+    src: '/assets/aistudio/IMG_9142_a74dd9f4.jpeg',
+    alt: 'Celebrations, Hobbies & Laughter',
+    title: 'Laughter, Comedy & Community Improv',
+    caption: 'Sharing smiles and finding humor in unexpected places with friends and fellow performers.',
+    tag: 'Comedy',
     year: '2025'
   },
   {
     id: 'gal-6',
-    src: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
-    alt: 'Comedy Club Stage',
-    title: 'Boston Comedy Open Mic',
-    caption: 'Sharing laughs and finding light in unexpected places with improv partner Elena.',
-    tag: 'Comedy',
-    year: '2024'
+    src: '/assets/aistudio/video_poster.jpg',
+    alt: 'Personal Video Message & Overview',
+    title: 'Personal Video & Gratitude',
+    caption: 'A heartfelt personal introduction sharing why your consideration and support means everything.',
+    tag: 'Video',
+    year: '2026'
   }
 ];
 

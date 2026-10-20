@@ -9,7 +9,8 @@ import {
   Mail,
   Github,
   X,
-  Send
+  Send,
+  Sparkles
 } from 'lucide-react';
 import { RecipientProfile, SignedNDA } from '../types';
 import { AuthorModal } from './AuthorModal';
@@ -19,13 +20,15 @@ interface FooterProps {
   signedNda: SignedNDA | null;
   onResetNda: () => void;
   onOpenPrivacyModal: () => void;
+  onStartWalkthrough?: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
   profile,
   signedNda,
   onResetNda,
-  onOpenPrivacyModal
+  onOpenPrivacyModal,
+  onStartWalkthrough
 }) => {
   const [isAuthorModalOpen, setIsAuthorModalOpen] = useState(false);
   const [isResendingCopy, setIsResendingCopy] = useState(false);
@@ -72,6 +75,17 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
+            {onStartWalkthrough && (
+              <button
+                onClick={onStartWalkthrough}
+                className="px-3 py-1.5 rounded-lg bg-teal-950/80 hover:bg-teal-900 border border-teal-600/50 text-teal-300 text-xs font-medium transition-colors cursor-pointer flex items-center gap-1.5"
+                title="Interactive Walkthrough for a recipient to fill in their own information"
+              >
+                <Sparkles className="w-3 h-3 text-teal-400" />
+                <span>Recipient Walkthru</span>
+              </button>
+            )}
+
             <button
               onClick={handleResendDocuSignCopy}
               disabled={isResendingCopy}
@@ -186,7 +200,7 @@ export const Footer: React.FC<FooterProps> = ({
             >
               Ashley
             </button>{' '}
-            in Boston 02116, 2006.
+            in Boston 02116, 2026.
           </p>
         </div>
       </div>

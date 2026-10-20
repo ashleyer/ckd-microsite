@@ -18,6 +18,8 @@ import { ProgressEmailSection } from './components/ProgressEmailSection';
 import { GallerySection } from './components/GallerySection';
 import { FaqSection } from './components/FaqSection';
 import { Footer } from './components/Footer';
+import { Sparkles } from 'lucide-react';
+import { RecipientWalkthrough } from './components/RecipientWalkthrough';
 
 // Modals
 import { PrivacyAndProfileModal } from './components/PrivacyAndProfileModal';
@@ -40,6 +42,43 @@ export default function App() {
   const [isShareOpen, setIsShareOpen] = useState(false);
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
   const [isCheerOpen, setIsCheerOpen] = useState(false);
+  const [isWalkthroughOpen, setIsWalkthroughOpen] = useState(false);
+
+  const handleStartWalkthrough = () => {
+    if (!signedNda) {
+      // Auto-unlock preview NDA session so the recipient can explore all sections
+      const previewNda: SignedNDA = {
+        isSigned: true,
+        signerName: 'Recipient Preview Mode',
+        signerEmail: profile.docusignRecipientEmail,
+        signerTitle: 'Recipient Template Customizer',
+        signatureType: 'type',
+        signatureText: '/s/ Recipient Template Customizer',
+        signedAt: new Date().toLocaleString('en-US', {
+          dateStyle: 'medium',
+          timeStyle: 'short'
+        }),
+        envelopeId: 'ENV-PREVIEW-WALKTHROUGH-2026',
+        certificateId: 'CERT-PREVIEW-8831',
+        securityHash: 'sha256-recipient-walkthrough-preview-session',
+        agreedClauses: {
+          confidentiality: true,
+          noHarassment: true,
+          hipaaRespect: true,
+          altruismNotaLaw: true,
+          noCeleryJuiceAdvice: true
+        },
+        recipientCopyEmail: profile.docusignRecipientEmail,
+        recipientCopyStatus: 'delivered'
+      };
+      setSignedNda(previewNda);
+    }
+    setIsWalkthroughOpen(true);
+  };
+
+  const handleUpdateProfile = (updated: Partial<RecipientProfile>) => {
+    setProfile(prev => ({ ...prev, ...updated }));
+  };
 
   // Check localStorage for prior signed session across browser sessions
   useEffect(() => {
@@ -211,6 +250,7 @@ export default function App() {
           onGoogleSignIn={handleGoogleSignInFromLanding}
           isGoogleSigningIn={isGoogleSigningIn}
           noticeMessage={gateNoticeMessage}
+          onStartWalkthrough={handleStartWalkthrough}
         />
       );
     }
@@ -240,6 +280,7 @@ export default function App() {
         onOpenScreening={() => setIsScreeningOpen(true)}
         onOpenPrivacyModal={() => setIsPrivacyOpen(true)}
         onOpenShareModal={() => setIsShareOpen(true)}
+        onStartWalkthrough={handleStartWalkthrough}
       />
 
       <main>
@@ -320,6 +361,20 @@ export default function App() {
         signedNda={signedNda}
         onResetNda={handleResetNda}
         onOpenPrivacyModal={() => setIsPrivacyOpen(true)}
+        onStartWalkthrough={handleStartWalkthrough}
+      />
+
+      {/* Recipient Walkthrough Tooltip Guide */}
+      <RecipientWalkthrough
+        isOpen={isWalkthroughOpen}
+        onClose={() => setIsWalkthroughOpen(false)}
+        profile={profile}
+        onUpdateProfile={handleUpdateProfile}
+        onOpenFullCustomizer={() => {
+          setIsWalkthroughOpen(false);
+          setIsPrivacyOpen(true);
+        }}
+        onOpenScreening={() => setIsScreeningOpen(true)}
       />
 
       {/* Interactive Modals */}

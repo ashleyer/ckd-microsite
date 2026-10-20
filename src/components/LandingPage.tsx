@@ -28,13 +28,15 @@ interface LandingPageProps {
   onGoogleSignIn: () => void;
   isGoogleSigningIn: boolean;
   noticeMessage?: string;
+  onStartWalkthrough?: () => void;
 }
 
 export const LandingPage: React.FC<LandingPageProps> = ({
   onProceedToNda,
   onGoogleSignIn,
   isGoogleSigningIn,
-  noticeMessage
+  noticeMessage,
+  onStartWalkthrough
 }) => {
   const [isAuthorModalOpen, setIsAuthorModalOpen] = useState(false);
 
@@ -63,6 +65,17 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           </div>
 
           <div className="flex items-center gap-2.5 sm:gap-3">
+            {onStartWalkthrough && (
+              <button
+                onClick={onStartWalkthrough}
+                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 bg-stone-900 hover:bg-stone-800 text-teal-300 hover:text-teal-200 text-xs font-semibold rounded-xl border border-teal-500/40 transition-all cursor-pointer shadow-xs"
+                title="How a recipient can use this microsite to fill in their own information"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-teal-400" />
+                <span>Recipient Walkthru</span>
+              </button>
+            )}
+
             <button
               onClick={onGoogleSignIn}
               disabled={isGoogleSigningIn}
@@ -87,6 +100,21 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           </div>
         </div>
       </header>
+
+      {/* Recipient Interactive Guide Banner */}
+      {onStartWalkthrough && (
+        <div className="bg-gradient-to-r from-teal-950/90 via-stone-900 to-teal-950/90 border-b border-teal-500/30 px-4 py-2 text-center text-xs text-stone-300 flex items-center justify-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+          <span className="text-teal-200 font-medium">Are you a kidney transplant recipient or advocate?</span>
+          <button
+            onClick={onStartWalkthrough}
+            className="text-teal-300 font-bold underline hover:text-white cursor-pointer inline-flex items-center gap-1 transition-colors"
+          >
+            <span>Start Recipient Setup Walkthru</span>
+            <ChevronRight className="w-3.5 h-3.5 text-teal-400" />
+          </button>
+        </div>
+      )}
 
       {/* Notice Banner if returning from Google sign-in */}
       {noticeMessage && (
@@ -290,7 +318,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             >
               Ashley
             </button>{' '}
-            in Boston 02116, 2006.
+            in Boston 02116, 2026.
           </p>
         </div>
       </footer>

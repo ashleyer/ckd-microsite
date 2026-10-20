@@ -8,6 +8,7 @@ interface NavbarProps {
   onOpenScreening: () => void;
   onOpenPrivacyModal: () => void;
   onOpenShareModal: () => void;
+  onStartWalkthrough?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -15,7 +16,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   signedNda,
   onOpenScreening,
   onOpenPrivacyModal,
-  onOpenShareModal
+  onOpenShareModal,
+  onStartWalkthrough
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
@@ -114,6 +116,18 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <span className="truncate max-w-[130px]">{signedNda.signerName}</span>
                 <span className="text-[9px] text-emerald-700 bg-emerald-100 px-1 rounded font-mono">NDA Signed</span>
               </div>
+            )}
+
+            {onStartWalkthrough && (
+              <button
+                onClick={onStartWalkthrough}
+                className="px-2.5 sm:px-3 py-2 text-xs font-semibold text-teal-800 bg-teal-50 hover:bg-teal-100 border border-teal-300 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer shadow-2xs"
+                title="Interactive Walkthrough: How a recipient can customize this microsite"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-teal-600 animate-pulse" />
+                <span className="hidden sm:inline">Recipient Walkthru</span>
+                <span className="sm:hidden">Walkthru</span>
+              </button>
             )}
 
             <button
@@ -237,6 +251,19 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             Frequently Asked Questions
           </a>
+
+          {onStartWalkthrough && (
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onStartWalkthrough();
+              }}
+              className="w-full text-left px-3 py-2 text-teal-800 font-bold bg-teal-100 hover:bg-teal-200 rounded-md flex items-center gap-2 cursor-pointer mt-2"
+            >
+              <Sparkles className="w-4 h-4 text-teal-600" />
+              <span>✨ Recipient Setup Walkthru</span>
+            </button>
+          )}
         </div>
       )}
     </header>
