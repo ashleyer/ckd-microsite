@@ -12,6 +12,7 @@ import { WhyAndHowSection } from './components/WhyAndHowSection';
 import { CommunityTestimonialsSection } from './components/CommunityTestimonialsSection';
 import { VideoSection } from './components/VideoSection';
 import { DonorTestimonialsSection } from './components/DonorTestimonialsSection';
+import { DonorJourneySection } from './components/DonorJourneySection';
 import { GamifiedEngageSection } from './components/GamifiedEngageSection';
 import { ProgressEmailSection } from './components/ProgressEmailSection';
 import { GallerySection } from './components/GallerySection';
@@ -290,6 +291,12 @@ export default function App() {
 
         {/* Living Donor Testimonials with Popups (Reducing Donor Anxiety) */}
         <DonorTestimonialsSection />
+
+        {/* Living Donor Journey: Interactive Step-by-Step Visual Guide */}
+        <DonorJourneySection
+          profile={profile}
+          onOpenScreening={() => setIsScreeningOpen(true)}
+        />
 
         {/* Interactive Challenge: Myth-Buster Quiz & Paired Swap Domino Simulator */}
         <GamifiedEngageSection

@@ -82,6 +82,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             <a href="#testimonials" className="hover:text-slate-900 transition-colors whitespace-nowrap">
               Donor Stories
             </a>
+            <a href="#donor-journey" className="hover:text-teal-800 transition-colors whitespace-nowrap font-semibold text-teal-800 bg-teal-50/80 px-2.5 py-1 rounded-md">
+              Donor Journey
+            </a>
             <a href="#interactive-challenge" className="hover:text-slate-900 transition-colors whitespace-nowrap">
               Quiz & Simulator
             </a>
@@ -205,6 +208,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="block px-3 py-2 text-stone-700 hover:bg-stone-200 rounded-md"
           >
             Living Donor Testimonials (Pop-up Wall)
+          </a>
+          <a
+            href="#donor-journey"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-3 py-2 text-teal-800 font-semibold bg-teal-50 hover:bg-teal-100 rounded-md"
+          >
+            Living Donor Journey: Visual Roadmap
           </a>
           <a
             href="#interactive-challenge"
