@@ -1,0 +1,6 @@
+{
+  "name": "Tony Dipiro - Kidney Donor Microsite",
+  "description": "Official living kidney donor search microsite for Tony Dipiro, built under Find A Kidney and National Kidney Registry guidelines.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
